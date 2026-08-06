@@ -31,11 +31,11 @@ export const Route = createFileRoute("/")({
         content:
           "ResQNet unifies citizens, volunteers, NGOs, hospitals and government agencies on one AI-assisted disaster response, rescue and relief management platform.",
       },
-      { property: "og:title", content: "ResQNet — AI Disaster Response Command Platform" },
+      { property: "og:title", content: "ResQNet — AI Disaster Response & Relief Command Platform" },
       {
         property: "og:description",
         content:
-          "Live disaster map, SOS rescue routing, relief inventory, hospital capacity and AI triage in one command center.",
+          "ResQNet unifies citizens, volunteers, NGOs, hospitals and government agencies on one AI-assisted disaster response, rescue and relief management platform.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

@@ -80,19 +80,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "ResQNet — AI Disaster Response & Relief Platform" },
+      { title: "ResQNet — AI Disaster Response & Relief Command Platform" },
       {
         name: "description",
         content:
-          "AI-powered smart disaster response and relief management for citizens, volunteers, NGOs, hospitals and government agencies.",
+          "ResQNet unifies citizens, volunteers, NGOs, hospitals and government agencies on one AI-assisted disaster response, rescue and relief management platform.",
       },
-      { property: "og:title", content: "ResQNet — AI Disaster Response Platform" },
+      { property: "og:title", content: "ResQNet — AI Disaster Response & Relief Command Platform" },
       {
         property: "og:description",
-        content: "Unified disaster response, rescue routing and relief management command platform.",
+        content: "ResQNet unifies citizens, volunteers, NGOs, hospitals and government agencies on one AI-assisted disaster response, rescue and relief management platform.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "ResQNet — AI Disaster Response & Relief Command Platform" },
+      { name: "twitter:description", content: "ResQNet unifies citizens, volunteers, NGOs, hospitals and government agencies on one AI-assisted disaster response, rescue and relief management platform." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/892af2f4-e290-4bb6-8fc5-e7958600b962/id-preview-64af511b--3c67c707-ad2f-4924-b252-5dc8148a2a13.lovable.app-1785995590556.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/892af2f4-e290-4bb6-8fc5-e7958600b962/id-preview-64af511b--3c67c707-ad2f-4924-b252-5dc8148a2a13.lovable.app-1785995590556.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
