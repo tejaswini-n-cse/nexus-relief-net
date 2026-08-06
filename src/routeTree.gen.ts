@@ -14,7 +14,9 @@ import { Route as AiRouteImport } from './routes/ai'
 import { Route as AlertsRouteImport } from './routes/alerts'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as MapRouteImport } from './routes/map'
+import { Route as DashboardAdminRouteImport } from './routes/dashboard.admin'
 import { Route as DashboardCitizenRouteImport } from './routes/dashboard.citizen'
+import { Route as DashboardGovernmentRouteImport } from './routes/dashboard.government'
 import { Route as DashboardHospitalRouteImport } from './routes/dashboard.hospital'
 import { Route as DashboardNgoRouteImport } from './routes/dashboard.ngo'
 import { Route as DashboardVolunteerRouteImport } from './routes/dashboard.volunteer'
@@ -44,9 +46,19 @@ const MapRoute = MapRouteImport.update({
   path: '/map',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardAdminRoute = DashboardAdminRouteImport.update({
+  id: '/dashboard/admin',
+  path: '/dashboard/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DashboardCitizenRoute = DashboardCitizenRouteImport.update({
   id: '/dashboard/citizen',
   path: '/dashboard/citizen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardGovernmentRoute = DashboardGovernmentRouteImport.update({
+  id: '/dashboard/government',
+  path: '/dashboard/government',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardHospitalRoute = DashboardHospitalRouteImport.update({
@@ -71,7 +83,9 @@ export interface FileRoutesByFullPath {
   '/alerts': typeof AlertsRoute
   '/auth': typeof AuthRoute
   '/map': typeof MapRoute
+  '/dashboard/admin': typeof DashboardAdminRoute
   '/dashboard/citizen': typeof DashboardCitizenRoute
+  '/dashboard/government': typeof DashboardGovernmentRoute
   '/dashboard/hospital': typeof DashboardHospitalRoute
   '/dashboard/ngo': typeof DashboardNgoRoute
   '/dashboard/volunteer': typeof DashboardVolunteerRoute
@@ -82,7 +96,9 @@ export interface FileRoutesByTo {
   '/alerts': typeof AlertsRoute
   '/auth': typeof AuthRoute
   '/map': typeof MapRoute
+  '/dashboard/admin': typeof DashboardAdminRoute
   '/dashboard/citizen': typeof DashboardCitizenRoute
+  '/dashboard/government': typeof DashboardGovernmentRoute
   '/dashboard/hospital': typeof DashboardHospitalRoute
   '/dashboard/ngo': typeof DashboardNgoRoute
   '/dashboard/volunteer': typeof DashboardVolunteerRoute
@@ -94,7 +110,9 @@ export interface FileRoutesById {
   '/alerts': typeof AlertsRoute
   '/auth': typeof AuthRoute
   '/map': typeof MapRoute
+  '/dashboard/admin': typeof DashboardAdminRoute
   '/dashboard/citizen': typeof DashboardCitizenRoute
+  '/dashboard/government': typeof DashboardGovernmentRoute
   '/dashboard/hospital': typeof DashboardHospitalRoute
   '/dashboard/ngo': typeof DashboardNgoRoute
   '/dashboard/volunteer': typeof DashboardVolunteerRoute
@@ -107,7 +125,9 @@ export interface FileRouteTypes {
     | '/alerts'
     | '/auth'
     | '/map'
+    | '/dashboard/admin'
     | '/dashboard/citizen'
+    | '/dashboard/government'
     | '/dashboard/hospital'
     | '/dashboard/ngo'
     | '/dashboard/volunteer'
@@ -118,7 +138,9 @@ export interface FileRouteTypes {
     | '/alerts'
     | '/auth'
     | '/map'
+    | '/dashboard/admin'
     | '/dashboard/citizen'
+    | '/dashboard/government'
     | '/dashboard/hospital'
     | '/dashboard/ngo'
     | '/dashboard/volunteer'
@@ -129,7 +151,9 @@ export interface FileRouteTypes {
     | '/alerts'
     | '/auth'
     | '/map'
+    | '/dashboard/admin'
     | '/dashboard/citizen'
+    | '/dashboard/government'
     | '/dashboard/hospital'
     | '/dashboard/ngo'
     | '/dashboard/volunteer'
@@ -141,7 +165,9 @@ export interface RootRouteChildren {
   AlertsRoute: typeof AlertsRoute
   AuthRoute: typeof AuthRoute
   MapRoute: typeof MapRoute
+  DashboardAdminRoute: typeof DashboardAdminRoute
   DashboardCitizenRoute: typeof DashboardCitizenRoute
+  DashboardGovernmentRoute: typeof DashboardGovernmentRoute
   DashboardHospitalRoute: typeof DashboardHospitalRoute
   DashboardNgoRoute: typeof DashboardNgoRoute
   DashboardVolunteerRoute: typeof DashboardVolunteerRoute
@@ -184,11 +210,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MapRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard/admin': {
+      id: '/dashboard/admin'
+      path: '/dashboard/admin'
+      fullPath: '/dashboard/admin'
+      preLoaderRoute: typeof DashboardAdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dashboard/citizen': {
       id: '/dashboard/citizen'
       path: '/dashboard/citizen'
       fullPath: '/dashboard/citizen'
       preLoaderRoute: typeof DashboardCitizenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/government': {
+      id: '/dashboard/government'
+      path: '/dashboard/government'
+      fullPath: '/dashboard/government'
+      preLoaderRoute: typeof DashboardGovernmentRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dashboard/hospital': {
@@ -221,7 +261,9 @@ const rootRouteChildren: RootRouteChildren = {
   AlertsRoute: AlertsRoute,
   AuthRoute: AuthRoute,
   MapRoute: MapRoute,
+  DashboardAdminRoute: DashboardAdminRoute,
   DashboardCitizenRoute: DashboardCitizenRoute,
+  DashboardGovernmentRoute: DashboardGovernmentRoute,
   DashboardHospitalRoute: DashboardHospitalRoute,
   DashboardNgoRoute: DashboardNgoRoute,
   DashboardVolunteerRoute: DashboardVolunteerRoute,
