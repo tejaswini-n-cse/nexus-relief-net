@@ -15,6 +15,8 @@ import { Route as AlertsRouteImport } from './routes/alerts'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as MapRouteImport } from './routes/map'
 import { Route as DashboardCitizenRouteImport } from './routes/dashboard.citizen'
+import { Route as DashboardHospitalRouteImport } from './routes/dashboard.hospital'
+import { Route as DashboardNgoRouteImport } from './routes/dashboard.ngo'
 import { Route as DashboardVolunteerRouteImport } from './routes/dashboard.volunteer'
 
 const IndexRoute = IndexRouteImport.update({
@@ -47,6 +49,16 @@ const DashboardCitizenRoute = DashboardCitizenRouteImport.update({
   path: '/dashboard/citizen',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardHospitalRoute = DashboardHospitalRouteImport.update({
+  id: '/dashboard/hospital',
+  path: '/dashboard/hospital',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardNgoRoute = DashboardNgoRouteImport.update({
+  id: '/dashboard/ngo',
+  path: '/dashboard/ngo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DashboardVolunteerRoute = DashboardVolunteerRouteImport.update({
   id: '/dashboard/volunteer',
   path: '/dashboard/volunteer',
@@ -60,6 +72,8 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/map': typeof MapRoute
   '/dashboard/citizen': typeof DashboardCitizenRoute
+  '/dashboard/hospital': typeof DashboardHospitalRoute
+  '/dashboard/ngo': typeof DashboardNgoRoute
   '/dashboard/volunteer': typeof DashboardVolunteerRoute
 }
 export interface FileRoutesByTo {
@@ -69,6 +83,8 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/map': typeof MapRoute
   '/dashboard/citizen': typeof DashboardCitizenRoute
+  '/dashboard/hospital': typeof DashboardHospitalRoute
+  '/dashboard/ngo': typeof DashboardNgoRoute
   '/dashboard/volunteer': typeof DashboardVolunteerRoute
 }
 export interface FileRoutesById {
@@ -79,6 +95,8 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/map': typeof MapRoute
   '/dashboard/citizen': typeof DashboardCitizenRoute
+  '/dashboard/hospital': typeof DashboardHospitalRoute
+  '/dashboard/ngo': typeof DashboardNgoRoute
   '/dashboard/volunteer': typeof DashboardVolunteerRoute
 }
 export interface FileRouteTypes {
@@ -90,6 +108,8 @@ export interface FileRouteTypes {
     | '/auth'
     | '/map'
     | '/dashboard/citizen'
+    | '/dashboard/hospital'
+    | '/dashboard/ngo'
     | '/dashboard/volunteer'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -99,6 +119,8 @@ export interface FileRouteTypes {
     | '/auth'
     | '/map'
     | '/dashboard/citizen'
+    | '/dashboard/hospital'
+    | '/dashboard/ngo'
     | '/dashboard/volunteer'
   id:
     | '__root__'
@@ -108,6 +130,8 @@ export interface FileRouteTypes {
     | '/auth'
     | '/map'
     | '/dashboard/citizen'
+    | '/dashboard/hospital'
+    | '/dashboard/ngo'
     | '/dashboard/volunteer'
   fileRoutesById: FileRoutesById
 }
@@ -118,6 +142,8 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   MapRoute: typeof MapRoute
   DashboardCitizenRoute: typeof DashboardCitizenRoute
+  DashboardHospitalRoute: typeof DashboardHospitalRoute
+  DashboardNgoRoute: typeof DashboardNgoRoute
   DashboardVolunteerRoute: typeof DashboardVolunteerRoute
 }
 
@@ -165,6 +191,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardCitizenRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard/hospital': {
+      id: '/dashboard/hospital'
+      path: '/dashboard/hospital'
+      fullPath: '/dashboard/hospital'
+      preLoaderRoute: typeof DashboardHospitalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/ngo': {
+      id: '/dashboard/ngo'
+      path: '/dashboard/ngo'
+      fullPath: '/dashboard/ngo'
+      preLoaderRoute: typeof DashboardNgoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dashboard/volunteer': {
       id: '/dashboard/volunteer'
       path: '/dashboard/volunteer'
@@ -182,6 +222,8 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   MapRoute: MapRoute,
   DashboardCitizenRoute: DashboardCitizenRoute,
+  DashboardHospitalRoute: DashboardHospitalRoute,
+  DashboardNgoRoute: DashboardNgoRoute,
   DashboardVolunteerRoute: DashboardVolunteerRoute,
 }
 export const routeTree = rootRouteImport
