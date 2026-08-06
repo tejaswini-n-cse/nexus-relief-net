@@ -14,6 +14,8 @@ import { Route as AiRouteImport } from './routes/ai'
 import { Route as AlertsRouteImport } from './routes/alerts'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as MapRouteImport } from './routes/map'
+import { Route as DashboardCitizenRouteImport } from './routes/dashboard.citizen'
+import { Route as DashboardVolunteerRouteImport } from './routes/dashboard.volunteer'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -40,6 +42,16 @@ const MapRoute = MapRouteImport.update({
   path: '/map',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardCitizenRoute = DashboardCitizenRouteImport.update({
+  id: '/dashboard/citizen',
+  path: '/dashboard/citizen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardVolunteerRoute = DashboardVolunteerRouteImport.update({
+  id: '/dashboard/volunteer',
+  path: '/dashboard/volunteer',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -47,6 +59,8 @@ export interface FileRoutesByFullPath {
   '/alerts': typeof AlertsRoute
   '/auth': typeof AuthRoute
   '/map': typeof MapRoute
+  '/dashboard/citizen': typeof DashboardCitizenRoute
+  '/dashboard/volunteer': typeof DashboardVolunteerRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +68,8 @@ export interface FileRoutesByTo {
   '/alerts': typeof AlertsRoute
   '/auth': typeof AuthRoute
   '/map': typeof MapRoute
+  '/dashboard/citizen': typeof DashboardCitizenRoute
+  '/dashboard/volunteer': typeof DashboardVolunteerRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,13 +78,37 @@ export interface FileRoutesById {
   '/alerts': typeof AlertsRoute
   '/auth': typeof AuthRoute
   '/map': typeof MapRoute
+  '/dashboard/citizen': typeof DashboardCitizenRoute
+  '/dashboard/volunteer': typeof DashboardVolunteerRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/ai' | '/alerts' | '/auth' | '/map'
+  fullPaths:
+    | '/'
+    | '/ai'
+    | '/alerts'
+    | '/auth'
+    | '/map'
+    | '/dashboard/citizen'
+    | '/dashboard/volunteer'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/ai' | '/alerts' | '/auth' | '/map'
-  id: '__root__' | '/' | '/ai' | '/alerts' | '/auth' | '/map'
+  to:
+    | '/'
+    | '/ai'
+    | '/alerts'
+    | '/auth'
+    | '/map'
+    | '/dashboard/citizen'
+    | '/dashboard/volunteer'
+  id:
+    | '__root__'
+    | '/'
+    | '/ai'
+    | '/alerts'
+    | '/auth'
+    | '/map'
+    | '/dashboard/citizen'
+    | '/dashboard/volunteer'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -77,6 +117,8 @@ export interface RootRouteChildren {
   AlertsRoute: typeof AlertsRoute
   AuthRoute: typeof AuthRoute
   MapRoute: typeof MapRoute
+  DashboardCitizenRoute: typeof DashboardCitizenRoute
+  DashboardVolunteerRoute: typeof DashboardVolunteerRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -116,6 +158,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MapRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard/citizen': {
+      id: '/dashboard/citizen'
+      path: '/dashboard/citizen'
+      fullPath: '/dashboard/citizen'
+      preLoaderRoute: typeof DashboardCitizenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/volunteer': {
+      id: '/dashboard/volunteer'
+      path: '/dashboard/volunteer'
+      fullPath: '/dashboard/volunteer'
+      preLoaderRoute: typeof DashboardVolunteerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -125,6 +181,8 @@ const rootRouteChildren: RootRouteChildren = {
   AlertsRoute: AlertsRoute,
   AuthRoute: AuthRoute,
   MapRoute: MapRoute,
+  DashboardCitizenRoute: DashboardCitizenRoute,
+  DashboardVolunteerRoute: DashboardVolunteerRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
