@@ -10,33 +10,167 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AiRouteImport } from './routes/ai'
+import { Route as AlertsRouteImport } from './routes/alerts'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as MapRouteImport } from './routes/map'
+import { Route as DashboardAdminRouteImport } from './routes/dashboard.admin'
+import { Route as DashboardCitizenRouteImport } from './routes/dashboard.citizen'
+import { Route as DashboardGovernmentRouteImport } from './routes/dashboard.government'
+import { Route as DashboardHospitalRouteImport } from './routes/dashboard.hospital'
+import { Route as DashboardNgoRouteImport } from './routes/dashboard.ngo'
+import { Route as DashboardVolunteerRouteImport } from './routes/dashboard.volunteer'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AiRoute = AiRouteImport.update({
+  id: '/ai',
+  path: '/ai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlertsRoute = AlertsRouteImport.update({
+  id: '/alerts',
+  path: '/alerts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MapRoute = MapRouteImport.update({
+  id: '/map',
+  path: '/map',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardAdminRoute = DashboardAdminRouteImport.update({
+  id: '/dashboard/admin',
+  path: '/dashboard/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardCitizenRoute = DashboardCitizenRouteImport.update({
+  id: '/dashboard/citizen',
+  path: '/dashboard/citizen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardGovernmentRoute = DashboardGovernmentRouteImport.update({
+  id: '/dashboard/government',
+  path: '/dashboard/government',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardHospitalRoute = DashboardHospitalRouteImport.update({
+  id: '/dashboard/hospital',
+  path: '/dashboard/hospital',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardNgoRoute = DashboardNgoRouteImport.update({
+  id: '/dashboard/ngo',
+  path: '/dashboard/ngo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardVolunteerRoute = DashboardVolunteerRouteImport.update({
+  id: '/dashboard/volunteer',
+  path: '/dashboard/volunteer',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ai': typeof AiRoute
+  '/alerts': typeof AlertsRoute
+  '/auth': typeof AuthRoute
+  '/map': typeof MapRoute
+  '/dashboard/admin': typeof DashboardAdminRoute
+  '/dashboard/citizen': typeof DashboardCitizenRoute
+  '/dashboard/government': typeof DashboardGovernmentRoute
+  '/dashboard/hospital': typeof DashboardHospitalRoute
+  '/dashboard/ngo': typeof DashboardNgoRoute
+  '/dashboard/volunteer': typeof DashboardVolunteerRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ai': typeof AiRoute
+  '/alerts': typeof AlertsRoute
+  '/auth': typeof AuthRoute
+  '/map': typeof MapRoute
+  '/dashboard/admin': typeof DashboardAdminRoute
+  '/dashboard/citizen': typeof DashboardCitizenRoute
+  '/dashboard/government': typeof DashboardGovernmentRoute
+  '/dashboard/hospital': typeof DashboardHospitalRoute
+  '/dashboard/ngo': typeof DashboardNgoRoute
+  '/dashboard/volunteer': typeof DashboardVolunteerRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ai': typeof AiRoute
+  '/alerts': typeof AlertsRoute
+  '/auth': typeof AuthRoute
+  '/map': typeof MapRoute
+  '/dashboard/admin': typeof DashboardAdminRoute
+  '/dashboard/citizen': typeof DashboardCitizenRoute
+  '/dashboard/government': typeof DashboardGovernmentRoute
+  '/dashboard/hospital': typeof DashboardHospitalRoute
+  '/dashboard/ngo': typeof DashboardNgoRoute
+  '/dashboard/volunteer': typeof DashboardVolunteerRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/ai'
+    | '/alerts'
+    | '/auth'
+    | '/map'
+    | '/dashboard/admin'
+    | '/dashboard/citizen'
+    | '/dashboard/government'
+    | '/dashboard/hospital'
+    | '/dashboard/ngo'
+    | '/dashboard/volunteer'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/ai'
+    | '/alerts'
+    | '/auth'
+    | '/map'
+    | '/dashboard/admin'
+    | '/dashboard/citizen'
+    | '/dashboard/government'
+    | '/dashboard/hospital'
+    | '/dashboard/ngo'
+    | '/dashboard/volunteer'
+  id:
+    | '__root__'
+    | '/'
+    | '/ai'
+    | '/alerts'
+    | '/auth'
+    | '/map'
+    | '/dashboard/admin'
+    | '/dashboard/citizen'
+    | '/dashboard/government'
+    | '/dashboard/hospital'
+    | '/dashboard/ngo'
+    | '/dashboard/volunteer'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AiRoute: typeof AiRoute
+  AlertsRoute: typeof AlertsRoute
+  AuthRoute: typeof AuthRoute
+  MapRoute: typeof MapRoute
+  DashboardAdminRoute: typeof DashboardAdminRoute
+  DashboardCitizenRoute: typeof DashboardCitizenRoute
+  DashboardGovernmentRoute: typeof DashboardGovernmentRoute
+  DashboardHospitalRoute: typeof DashboardHospitalRoute
+  DashboardNgoRoute: typeof DashboardNgoRoute
+  DashboardVolunteerRoute: typeof DashboardVolunteerRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,22 +182,92 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ai': {
+      id: '/ai'
+      path: '/ai'
+      fullPath: '/ai'
+      preLoaderRoute: typeof AiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/alerts': {
+      id: '/alerts'
+      path: '/alerts'
+      fullPath: '/alerts'
+      preLoaderRoute: typeof AlertsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/map': {
+      id: '/map'
+      path: '/map'
+      fullPath: '/map'
+      preLoaderRoute: typeof MapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/admin': {
+      id: '/dashboard/admin'
+      path: '/dashboard/admin'
+      fullPath: '/dashboard/admin'
+      preLoaderRoute: typeof DashboardAdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/citizen': {
+      id: '/dashboard/citizen'
+      path: '/dashboard/citizen'
+      fullPath: '/dashboard/citizen'
+      preLoaderRoute: typeof DashboardCitizenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/government': {
+      id: '/dashboard/government'
+      path: '/dashboard/government'
+      fullPath: '/dashboard/government'
+      preLoaderRoute: typeof DashboardGovernmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/hospital': {
+      id: '/dashboard/hospital'
+      path: '/dashboard/hospital'
+      fullPath: '/dashboard/hospital'
+      preLoaderRoute: typeof DashboardHospitalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/ngo': {
+      id: '/dashboard/ngo'
+      path: '/dashboard/ngo'
+      fullPath: '/dashboard/ngo'
+      preLoaderRoute: typeof DashboardNgoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/volunteer': {
+      id: '/dashboard/volunteer'
+      path: '/dashboard/volunteer'
+      fullPath: '/dashboard/volunteer'
+      preLoaderRoute: typeof DashboardVolunteerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AiRoute: AiRoute,
+  AlertsRoute: AlertsRoute,
+  AuthRoute: AuthRoute,
+  MapRoute: MapRoute,
+  DashboardAdminRoute: DashboardAdminRoute,
+  DashboardCitizenRoute: DashboardCitizenRoute,
+  DashboardGovernmentRoute: DashboardGovernmentRoute,
+  DashboardHospitalRoute: DashboardHospitalRoute,
+  DashboardNgoRoute: DashboardNgoRoute,
+  DashboardVolunteerRoute: DashboardVolunteerRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
